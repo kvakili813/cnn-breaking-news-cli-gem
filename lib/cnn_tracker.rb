@@ -1,5 +1,8 @@
-require "cnn_tracker/version"
+require "open-uri"
+require "nokogiri"
+require "pry"
 
-module CnnTracker
-  # Your code goes here...
-end
+require_relative "cnn_tracker/version"
+require_relative "cnn_tracker/cli.rb"
+require_relative "cnn_tracker/scraper.rb"
+require_relative "cnn_tracker/breaking.rb"
