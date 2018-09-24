@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "./lib/cnn_tracker"
+require "cnn-breaking-news-cli-gem"
 
 CnnTracker::CLI.new.call
