@@ -1,7 +1,7 @@
-class CNNHeadlines::CLI
+class CNNBreakingNews::CLI
 
   def call
-    CNNHeadlines::Scraper.news
+    CNNBreakingNews::Scraper.news
     breaking_news
     menu
     goodbye
@@ -10,7 +10,7 @@ class CNNHeadlines::CLI
   def breaking_news
     puts "Today's breaking news:\n\n"
 
-    CNNHeadlines::Breaking.all.each.with_index(1) do |breaking_news, i|
+    CNNBreakingNews::Breaking.all.each.with_index(1) do |breaking_news, i|
       puts "#{i}. #{breaking_news.title} \n\n"
       end
     end
@@ -21,8 +21,8 @@ class CNNHeadlines::CLI
       puts 'Enter the number of breaking news headlines you would like to read or type list to see all the news again or type exit:'
       input = gets.strip.downcase
 
-      if input.to_i.between?(1, CNNHeadlines::Breaking.all.size)
-        news = CNNHeadlines::Scraper.add_story(CNNHeadlines::Breaking.find(input))
+      if input.to_i.between?(1, CNNBreakingNews::Breaking.all.size)
+        news = CNNBreakingNews::Scraper.add_story(CNNBreakingNews::Breaking.find(input))
         puts "Title: #{news.title}"
         puts '-------------Story----------------'
         puts breaking.story

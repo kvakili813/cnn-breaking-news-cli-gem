@@ -5,7 +5,7 @@ require "cnn_tracker/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "cnn_tracker"
-  spec.version       = CnnTracker::VERSION
+  spec.version       = CNNBreakingNews::VERSION
   spec.authors       = ["<kvakili813>"]
   spec.email         = ["<kvakili813@gmail.com>"]
 

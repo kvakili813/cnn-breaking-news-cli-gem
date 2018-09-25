@@ -1,3 +1,3 @@
-module CnnTracker
+module CNNBreakingNews
   VERSION = "0.1.0"
 end

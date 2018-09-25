@@ -1,4 +1,4 @@
-class CNNHeadlines::Breaking
+class CNNBreakingNews::Breaking
 
 @@all = []
 
