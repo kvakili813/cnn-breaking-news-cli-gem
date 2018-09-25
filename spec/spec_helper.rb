@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "cnn_tracker"
+require "cnn_breaking_news"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

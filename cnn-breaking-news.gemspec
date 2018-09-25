@@ -1,16 +1,16 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "cnn_tracker/version"
+require "cnn_breaking_news/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "cnn_tracker"
+  spec.name          = "cnn_breaking_news"
   spec.version       = CNNBreakingNews::VERSION
   spec.authors       = ["<kvakili813>"]
   spec.email         = ["<kvakili813@gmail.com>"]
 
   spec.summary       = "CNN breaking news tracker"
-  spec.description   = "cnn_headline_reader_cli gem takes user input and displays breaking news list."
+  spec.description   = "cnn_breaking_news gem takes user input and displays breaking news list."
   spec.homepage      = "https://github.com/kvakili813/cnn-breaking-news-cli-gem"
   spec.license       = "MIT"
 
