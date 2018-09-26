@@ -1,40 +1,52 @@
 class CNNBreakingNews::CLI
 
   def call
-    CNNBreakingNews::Scraper.news
-    breaking_news
-    menu
+    welcome
     goodbye
   end
 
-  def breaking_news
-    puts "Today's breaking news:\n\n"
+  def welcome
+    puts "Brooking's Top Blog Posts:\n\n"
+    puts "Would you like to learn about today's top posts? [Y/n]"
+    learn_more
+  end
 
-    CNNBreakingNews::Breaking.all.each.with_index(1) do |breaking_news, i|
-      puts "#{i}. #{breaking_news.title} \n\n"
-      end
+  def learn_more
+    input = gets.strip.upcase
+    if input == "Y"
+      list
+    elsif input == "N"
+      puts "Okay, maybe later."
+    else
+      puts "Invalid input - please try again."
+      learn_more
     end
+  end
 
-    def menu
-    input = nil
-    until input == 'exit'
-      puts 'Enter the number of breaking news headlines you would like to read or type list to see all the news again or type exit:'
-      input = gets.strip.downcase
+  def list
+    CNNBreakingNews::Scraper.blog_scraper
+    CNNBreakingNews::Blog.all.each do |post|
+      puts post.title.upcase + "\n"
+      puts "--------------"
+    end
+    more
+  end
 
-      if input.to_i.between?(1, CNNBreakingNews::Breaking.all.size)
-        news = CNNBreakingNews::Scraper.add_story(CNNBreakingNews::Breaking.find(input))
-        puts "Title: #{news.title}"
-        puts '-------------Story----------------'
-        puts breaking.story
-      elsif input == 'list'
-        breaking_news
-      elsif input == 'exit'
-        break
+  def more
+    puts "Would you like to find out more about a story?"
+    puts "Enter a number 1-3 to find out more about a particular story."
+    input = gets.strip
+      if input.to_i.between?(1, 3)
+        CNNBreakingNews::Scraper.expand_post(input)
+        puts CNNBreakingNews::Blog.find(input).title + "\n"
+        puts "----"
+        puts CNNBreakingNews::Blog.find(input).story + "\n"
+        puts "Would you like to learn about more of today's news? [Y/n]"
+        learn_more
       else
-        puts 'Please type list or exit.'
+        puts "Please try again, invalid input."
+        more
       end
-    end
-
   end
 
   def goodbye

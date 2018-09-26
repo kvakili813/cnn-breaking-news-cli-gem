@@ -1,11 +1,10 @@
-class CNNBreakingNews::Breaking
+class CNNBreakingNews::Blog
+  attr_accessor :title, :url, :story
 
-@@all = []
-
-attr_accessor :title, :url
+  @@all = []
 
   def self.all
-    @@all
+    @@all ||= blog_scraper
   end
 
   def save
